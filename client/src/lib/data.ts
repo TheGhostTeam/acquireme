@@ -1,0 +1,327 @@
+/*
+ * AcquireMe — Editorial Luxury Design
+ * Mock data for business listings
+ */
+
+export interface BusinessListing {
+  id: string;
+  title: string;
+  category: string;
+  location: string;
+  state: string;
+  askingPrice: number;
+  revenue: number;
+  cashFlow: number;
+  yearEstablished: number;
+  employees: number;
+  description: string;
+  highlights: string[];
+  image: string;
+  featured: boolean;
+  verified: boolean;
+  daysListed: number;
+  sbaPreQualified: boolean;
+  realEstateIncluded: boolean;
+}
+
+export const CATEGORIES = [
+  "All Industries",
+  "Restaurants & Food",
+  "Technology & SaaS",
+  "Retail & E-Commerce",
+  "Manufacturing",
+  "Healthcare & Wellness",
+  "Professional Services",
+  "Construction & Trades",
+  "Automotive",
+  "Hospitality & Hotels",
+  "Education & Training",
+  "Franchise Opportunities",
+] as const;
+
+export const LOCATIONS = [
+  "All Locations",
+  "New York, NY",
+  "Los Angeles, CA",
+  "Chicago, IL",
+  "Houston, TX",
+  "Miami, FL",
+  "San Francisco, CA",
+  "Austin, TX",
+  "Denver, CO",
+  "Seattle, WA",
+  "Atlanta, GA",
+  "Nashville, TN",
+  "Portland, OR",
+] as const;
+
+export const PRICE_RANGES = [
+  { label: "Any Price", min: 0, max: Infinity },
+  { label: "Under $100K", min: 0, max: 100000 },
+  { label: "$100K – $250K", min: 100000, max: 250000 },
+  { label: "$250K – $500K", min: 250000, max: 500000 },
+  { label: "$500K – $1M", min: 500000, max: 1000000 },
+  { label: "$1M – $5M", min: 1000000, max: 5000000 },
+  { label: "$5M+", min: 5000000, max: Infinity },
+] as const;
+
+export const listings: BusinessListing[] = [
+  {
+    id: "1",
+    title: "Award-Winning Italian Restaurant & Bar",
+    category: "Restaurants & Food",
+    location: "New York, NY",
+    state: "NY",
+    askingPrice: 1250000,
+    revenue: 2800000,
+    cashFlow: 420000,
+    yearEstablished: 2012,
+    employees: 28,
+    description: "Iconic Italian restaurant in Manhattan's West Village with a loyal customer base, 4.8-star rating, and consistent year-over-year revenue growth. Full liquor license, private dining room, and outdoor patio seating for 40. Recently renovated kitchen with state-of-the-art equipment. Turnkey operation with experienced management team in place.",
+    highlights: ["Full Liquor License", "4.8★ Rating", "Outdoor Patio", "Management in Place"],
+    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663496248255/eHQVkZv4wYe8DuYjaQEcSe/restaurant-listing-SNn4Z3uxpWF8nmnHeB4Q5X.webp",
+    featured: true,
+    verified: true,
+    daysListed: 12,
+    sbaPreQualified: true,
+    realEstateIncluded: false,
+  },
+  {
+    id: "2",
+    title: "Profitable SaaS Platform — Project Management",
+    category: "Technology & SaaS",
+    location: "San Francisco, CA",
+    state: "CA",
+    askingPrice: 4500000,
+    revenue: 1800000,
+    cashFlow: 950000,
+    yearEstablished: 2018,
+    employees: 8,
+    description: "Cloud-based project management SaaS with 2,400+ active subscribers and 94% monthly retention. Fully automated billing, onboarding, and support. Built on modern tech stack with minimal technical debt. Strong organic growth through SEO and word-of-mouth. Remote team with documented SOPs.",
+    highlights: ["94% Retention", "2.4K Subscribers", "Recurring Revenue", "Remote Team"],
+    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663496248255/eHQVkZv4wYe8DuYjaQEcSe/tech-company-KehJr8aUERi2VXNLwstbMc.webp",
+    featured: true,
+    verified: true,
+    daysListed: 5,
+    sbaPreQualified: false,
+    realEstateIncluded: false,
+  },
+  {
+    id: "3",
+    title: "Premium Boutique Retail — Home & Lifestyle",
+    category: "Retail & E-Commerce",
+    location: "Nashville, TN",
+    state: "TN",
+    askingPrice: 385000,
+    revenue: 920000,
+    cashFlow: 165000,
+    yearEstablished: 2016,
+    employees: 6,
+    description: "Beautifully curated home goods and lifestyle boutique in Nashville's trendy 12 South neighborhood. Strong brand identity with loyal local following and growing e-commerce presence. Exclusive vendor relationships and proprietary product lines. Lease has 7 years remaining with favorable terms.",
+    highlights: ["Prime Location", "E-Commerce Channel", "Exclusive Vendors", "Strong Brand"],
+    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663496248255/eHQVkZv4wYe8DuYjaQEcSe/retail-store-BFFefdtPmFdiT2hWiUTycZ.webp",
+    featured: false,
+    verified: true,
+    daysListed: 18,
+    sbaPreQualified: true,
+    realEstateIncluded: false,
+  },
+  {
+    id: "4",
+    title: "CNC Manufacturing & Precision Engineering",
+    category: "Manufacturing",
+    location: "Chicago, IL",
+    state: "IL",
+    askingPrice: 2750000,
+    revenue: 4200000,
+    cashFlow: 780000,
+    yearEstablished: 2005,
+    employees: 32,
+    description: "Established precision CNC manufacturing facility serving aerospace, defense, and medical device industries. ISO 9001:2015 certified with ITAR registration. State-of-the-art 5-axis CNC machines, CMM inspection equipment, and climate-controlled clean room. Long-term contracts with Fortune 500 clients.",
+    highlights: ["ISO 9001 Certified", "Fortune 500 Clients", "ITAR Registered", "Long-term Contracts"],
+    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663496248255/eHQVkZv4wYe8DuYjaQEcSe/manufacturing-gtGS8WCdbUyh5JypYdKNZX.webp",
+    featured: true,
+    verified: true,
+    daysListed: 8,
+    sbaPreQualified: true,
+    realEstateIncluded: true,
+  },
+  {
+    id: "5",
+    title: "Multi-Location Med Spa & Wellness Centers",
+    category: "Healthcare & Wellness",
+    location: "Miami, FL",
+    state: "FL",
+    askingPrice: 1800000,
+    revenue: 3100000,
+    cashFlow: 620000,
+    yearEstablished: 2017,
+    employees: 22,
+    description: "Three-location medical spa chain in South Florida offering aesthetic treatments, IV therapy, and wellness services. All locations in premium retail centers with high foot traffic. Medical director and licensed aestheticians on staff. Recurring membership model with 1,200+ active members.",
+    highlights: ["3 Locations", "1.2K Members", "Medical Director", "Membership Model"],
+    image: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=800&q=80",
+    featured: false,
+    verified: true,
+    daysListed: 22,
+    sbaPreQualified: false,
+    realEstateIncluded: false,
+  },
+  {
+    id: "6",
+    title: "Digital Marketing Agency — B2B Focus",
+    category: "Professional Services",
+    location: "Austin, TX",
+    state: "TX",
+    askingPrice: 950000,
+    revenue: 1400000,
+    cashFlow: 380000,
+    yearEstablished: 2019,
+    employees: 12,
+    description: "Full-service B2B digital marketing agency specializing in SaaS and fintech verticals. Services include SEO, paid media, content marketing, and marketing automation. 85% client retention rate with average contract value of $8K/month. Fully remote team with documented processes and proprietary frameworks.",
+    highlights: ["85% Retention", "$8K Avg Contract", "Remote Team", "Proprietary Framework"],
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80",
+    featured: false,
+    verified: true,
+    daysListed: 15,
+    sbaPreQualified: true,
+    realEstateIncluded: false,
+  },
+  {
+    id: "7",
+    title: "Commercial HVAC & Plumbing Contractor",
+    category: "Construction & Trades",
+    location: "Denver, CO",
+    state: "CO",
+    askingPrice: 3200000,
+    revenue: 5600000,
+    cashFlow: 920000,
+    yearEstablished: 2001,
+    employees: 45,
+    description: "Established commercial HVAC and plumbing contractor serving the Denver metro area for over 20 years. Holds all required licenses and bonding. Fleet of 28 service vehicles, fully equipped warehouse, and trained technicians. Strong reputation with general contractors and property management companies. Recurring maintenance contracts provide stable revenue base.",
+    highlights: ["20+ Year Track Record", "28 Service Vehicles", "Recurring Contracts", "Licensed & Bonded"],
+    image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80",
+    featured: false,
+    verified: true,
+    daysListed: 30,
+    sbaPreQualified: true,
+    realEstateIncluded: true,
+  },
+  {
+    id: "8",
+    title: "Boutique Hotel & Event Venue — Mountain Resort",
+    category: "Hospitality & Hotels",
+    location: "Portland, OR",
+    state: "OR",
+    askingPrice: 5500000,
+    revenue: 3800000,
+    cashFlow: 1100000,
+    yearEstablished: 2010,
+    employees: 35,
+    description: "Stunning 24-room boutique hotel and event venue nestled in the Columbia River Gorge. Features a farm-to-table restaurant, spa, and 5,000 sq ft event pavilion. Consistently rated #1 on TripAdvisor for the region. Hosts 80+ weddings and corporate events annually. Real estate included in sale price.",
+    highlights: ["24 Rooms", "#1 TripAdvisor", "Event Venue", "Real Estate Included"],
+    image: "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800&q=80",
+    featured: true,
+    verified: true,
+    daysListed: 3,
+    sbaPreQualified: false,
+    realEstateIncluded: true,
+  },
+  {
+    id: "9",
+    title: "Auto Detailing Franchise — 5 Territories",
+    category: "Automotive",
+    location: "Atlanta, GA",
+    state: "GA",
+    askingPrice: 675000,
+    revenue: 1100000,
+    cashFlow: 285000,
+    yearEstablished: 2020,
+    employees: 15,
+    description: "Multi-territory mobile auto detailing franchise covering metro Atlanta. Five exclusive territories with strong brand recognition and corporate fleet contracts. Proprietary booking app and CRM system. All equipment, vehicles, and trained staff included. Franchisor provides ongoing training and marketing support.",
+    highlights: ["5 Territories", "Fleet Contracts", "Booking App", "Franchise Support"],
+    image: "https://images.unsplash.com/photo-1520340356584-f9917d1eea6f?w=800&q=80",
+    featured: false,
+    verified: true,
+    daysListed: 25,
+    sbaPreQualified: true,
+    realEstateIncluded: false,
+  },
+  {
+    id: "10",
+    title: "E-Commerce Brand — Sustainable Pet Products",
+    category: "Retail & E-Commerce",
+    location: "Seattle, WA",
+    state: "WA",
+    askingPrice: 520000,
+    revenue: 780000,
+    cashFlow: 210000,
+    yearEstablished: 2021,
+    employees: 4,
+    description: "Fast-growing DTC e-commerce brand selling eco-friendly pet products. Strong presence on Amazon (4.7★ avg rating) and Shopify store. Proprietary product formulations with 65% gross margins. Featured in BarkBox, Dodo, and Pet Business Magazine. Inventory and supplier relationships included.",
+    highlights: ["65% Margins", "4.7★ Amazon", "DTC + Amazon", "Media Features"],
+    image: "https://images.unsplash.com/photo-1601758228041-f3b2795255f1?w=800&q=80",
+    featured: false,
+    verified: true,
+    daysListed: 10,
+    sbaPreQualified: false,
+    realEstateIncluded: false,
+  },
+  {
+    id: "11",
+    title: "Coding Bootcamp & Online Education Platform",
+    category: "Education & Training",
+    location: "Los Angeles, CA",
+    state: "CA",
+    askingPrice: 1100000,
+    revenue: 1600000,
+    cashFlow: 440000,
+    yearEstablished: 2019,
+    employees: 10,
+    description: "Hybrid coding bootcamp offering in-person and online programs in web development, data science, and UX design. 92% job placement rate within 6 months. Partnerships with 40+ hiring companies. Proprietary LMS platform and curriculum. Strong brand with 3,000+ alumni network.",
+    highlights: ["92% Placement", "3K+ Alumni", "Hybrid Model", "Hiring Partners"],
+    image: "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=800&q=80",
+    featured: false,
+    verified: true,
+    daysListed: 14,
+    sbaPreQualified: true,
+    realEstateIncluded: false,
+  },
+  {
+    id: "12",
+    title: "Established Landscaping & Hardscaping Company",
+    category: "Construction & Trades",
+    location: "Houston, TX",
+    state: "TX",
+    askingPrice: 890000,
+    revenue: 2100000,
+    cashFlow: 340000,
+    yearEstablished: 2008,
+    employees: 20,
+    description: "Full-service residential and commercial landscaping company with 15+ years of operations. Services include design, installation, maintenance, irrigation, and hardscaping. Fleet of specialized equipment and vehicles. 200+ recurring maintenance contracts. Strong online presence with 500+ 5-star reviews.",
+    highlights: ["200+ Contracts", "500+ Reviews", "Full Equipment", "15+ Years"],
+    image: "https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?w=800&q=80",
+    featured: false,
+    verified: false,
+    daysListed: 35,
+    sbaPreQualified: true,
+    realEstateIncluded: false,
+  },
+];
+
+export function formatCurrency(value: number): string {
+  if (value >= 1000000) {
+    return `$${(value / 1000000).toFixed(1)}M`;
+  }
+  if (value >= 1000) {
+    return `$${(value / 1000).toFixed(0)}K`;
+  }
+  return `$${value.toLocaleString()}`;
+}
+
+export function formatFullCurrency(value: number): string {
+  return new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: "USD",
+    maximumFractionDigits: 0,
+  }).format(value);
+}
