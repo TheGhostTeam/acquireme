@@ -1,19 +1,17 @@
 /*
- * AcquireMe Navbar — Editorial Luxury Design
- * Swiss-modernist navigation with Instrument Serif wordmark
- * Dark background, warm ivory text, teal accents
+ * AcquireMe Navbar — Main Street Edition
  */
+
 import { useState } from "react";
 import { Link, useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
-import { Menu, X, ArrowRight } from "lucide-react";
+import { Menu, X, ArrowRight, Phone } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import { toast } from "sonner";
 
 const navLinks = [
-  { href: "/listings", label: "Browse Listings" },
-  { href: "/sell", label: "Sell a Business" },
-  { href: "/about", label: "About" },
+  { href: "/listings", label: "Browse Businesses" },
+  { href: "/sell",     label: "Sell Your Business" },
+  { href: "/about",    label: "About Us" },
 ];
 
 export default function Navbar() {
@@ -21,9 +19,9 @@ export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 border-b border-white/[0.06] bg-background/80 backdrop-blur-xl">
+    <nav className="fixed top-0 left-0 right-0 z-50 border-b border-white/[0.06] bg-background/90 backdrop-blur-xl">
       <div className="container flex items-center justify-between h-16 lg:h-18">
-        {/* Logo */}
+
         <Link href="/" className="flex items-center gap-2 group">
           <div className="w-8 h-8 rounded-md bg-teal flex items-center justify-center">
             <span className="text-background font-bold text-sm">A</span>
@@ -33,16 +31,13 @@ export default function Navbar() {
           </span>
         </Link>
 
-        {/* Desktop Nav */}
         <div className="hidden md:flex items-center gap-8">
           {navLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}
               className={`text-sm font-medium transition-colors duration-200 ${
-                location === link.href
-                  ? "text-teal"
-                  : "text-ivory-muted hover:text-foreground"
+                location === link.href ? "text-teal" : "text-ivory-muted hover:text-foreground"
               }`}
             >
               {link.label}
@@ -50,36 +45,24 @@ export default function Navbar() {
           ))}
         </div>
 
-        {/* Desktop CTA */}
         <div className="hidden md:flex items-center gap-3">
-          <Button
-            variant="ghost"
-            className="text-sm text-ivory-muted hover:text-foreground hover:bg-white/5"
-            onClick={() => {
-              toast("Sign in coming soon", { description: "This feature is under development." });
-            }}
-          >
-            Sign In
-          </Button>
+          <a href="tel:+18005550000" className="flex items-center gap-1.5 text-sm text-ivory-muted hover:text-teal transition-colors">
+            <Phone className="w-3.5 h-3.5" />
+            <span className="hidden lg:inline">1-800-555-0000</span>
+          </a>
           <Link href="/sell">
             <Button className="bg-teal hover:bg-teal-dark text-background text-sm font-semibold gap-1.5 px-5">
-              List Your Business
+              Free Valuation
               <ArrowRight className="w-3.5 h-3.5" />
             </Button>
           </Link>
         </div>
 
-        {/* Mobile Menu Toggle */}
-        <button
-          className="md:hidden text-foreground p-2"
-          onClick={() => setMobileOpen(!mobileOpen)}
-          aria-label="Toggle menu"
-        >
+        <button className="md:hidden text-foreground p-2" onClick={() => setMobileOpen(!mobileOpen)} aria-label="Toggle menu">
           {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
         </button>
       </div>
 
-      {/* Mobile Menu */}
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
@@ -90,31 +73,21 @@ export default function Navbar() {
           >
             <div className="container py-6 flex flex-col gap-4">
               {navLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className={`text-lg font-medium py-2 ${
-                    location === link.href ? "text-teal" : "text-ivory-muted"
-                  }`}
-                  onClick={() => setMobileOpen(false)}
-                >
+                <Link key={link.href} href={link.href}
+                  className={`text-lg font-medium py-2 ${location === link.href ? "text-teal" : "text-ivory-muted"}`}
+                  onClick={() => setMobileOpen(false)}>
                   {link.label}
                 </Link>
               ))}
               <div className="pt-4 border-t border-white/[0.06] flex flex-col gap-3">
-                <Button
-                  variant="outline"
-                  className="w-full border-white/10 text-foreground"
-                  onClick={() => {
-                    toast("Sign in coming soon");
-                    setMobileOpen(false);
-                  }}
-                >
-                  Sign In
-                </Button>
+                <a href="tel:+18005550000"
+                  className="flex items-center justify-center gap-2 py-3 text-sm text-ivory-muted border border-white/10 rounded-lg hover:text-teal transition-colors">
+                  <Phone className="w-4 h-4" />
+                  Call Us: 1-800-555-0000
+                </a>
                 <Link href="/sell" onClick={() => setMobileOpen(false)}>
                   <Button className="w-full bg-teal hover:bg-teal-dark text-background font-semibold">
-                    List Your Business
+                    Get My Free Valuation
                   </Button>
                 </Link>
               </div>
